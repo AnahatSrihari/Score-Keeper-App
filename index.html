@@ -11,22 +11,17 @@
         let score = 0;
         let wicket = 0;
         let ballWiseRes = [];
+        let hit = 0;
 
         function addWicket() {
-            if (wicket < 10) {
-                ballWiseRes.push("W");
-                wicket += 1;
-                rootElement.render(<App />);//rerendering the app component to update the UI
-                console.log(ballWiseRes);
-            }
+            hit = "W";
+            rootElement.render(<App />);//rerendering the app component to update the UI
+
         }
         function addScore(num) {
-            if (wicket < 10) {
-                ballWiseRes.push(num);
-                score += num;
-                rootElement.render(<App />);//rerendering the app component to update the UI
-                console.log(ballWiseRes);
-            }
+            hit = num;
+            rootElement.render(<App />);//rerendering the app component to update the UI
+
         }
 
         function ScoreButtons() {
@@ -39,6 +34,8 @@
                 <button onClick={() => addScore(5)}>5</button>
                 <button onClick={() => addScore(6)}>6</button>
                 <button onClick={addWicket}>wicket</button>
+                <br />
+                <br />
             </div>
         }
         const Result = () => (
@@ -59,8 +56,9 @@
         }
         // forms in jSX
         const Form = () => {
+            <br />
             return <form onSubmit={handleSubmit}>
-                <input />
+                <input value={hit} />
                 <input />
                 <button> Submit </button>
                 <br />
