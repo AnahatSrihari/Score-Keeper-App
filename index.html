@@ -64,9 +64,9 @@
 
 
             ballWiseRes.unshift(
-             <span>
-                {hit}{", "}{inputRef.current.value}
-                </span>
+             //<span>{hit}{", "}{inputRef.current.value}</span>
+            <span>{`${hit},  ${inputRef.current.value}`}</span>
+
             )
             console.log(inputRef.current.value);
 
