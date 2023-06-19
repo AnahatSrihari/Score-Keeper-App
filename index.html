@@ -13,7 +13,7 @@
         let ballWiseRes = [];
         let hit = 0;
         //Creating Refs
-        let inputRef=React.createRef(); 
+        let inputRef = React.createRef();
 
         function addWicket() {
             hit = "W";
@@ -58,12 +58,16 @@
             if (hit == "W") {
                 wicket += 1;
             }
-            else{
+            else {
                 score += hit;
             }
-        
 
-            ballWiseRes.unshift(hit);
+
+            ballWiseRes.unshift(
+             <span>
+                {hit}{", "}{inputRef.current.value}
+                </span>
+            )
             console.log(inputRef.current.value);
 
             //rerender the app to update the UI
@@ -74,7 +78,7 @@
             <br />
             return <form onSubmit={handleSubmit}>
                 <input value={hit} />
-                <input ref={inputRef} placehoder="add a comment"/>
+                <input ref={inputRef} placehoder="add a comment" />
                 <button> Submit </button>
                 <br />
                 <hr />
